@@ -9,7 +9,7 @@ export const myDisplayer = ((some: any, value: any) => {
 const functionTestPromise = (state: SubPromiseState) => {
     return new Promise<string>((resolve, reject) => {
         try {
-            resolve('ok'); // Risolvi la Promise con il valore di "a"
+            resolve('ok');
         } catch (error) {
             reject(error); // Gestisci eventuali errori
         }
