@@ -78,7 +78,7 @@ const SubPromise: React.FC<any> = ({ }) => {
   }
 
   const setAllNome = (responseNome: any, dimension: number[]) => {
-    subPromiseStore.setAllNome(dimension.length, responseNome);
+    subPromiseStore.setAllNome(responseNome);
     aggiornaDOMComponente(dimension.length, responseNome);
 
   }
