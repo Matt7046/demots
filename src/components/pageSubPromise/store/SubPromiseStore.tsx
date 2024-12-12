@@ -21,6 +21,17 @@ export class SubPromiseStore extends BaseStore {
     this.nome[rowIndex] = nome;
   }
 
+  
+  setAllNome(dimension:number, nome: string) {
+
+    this.nome = this.nome.map((value, index)=>{
+      this.nome[index] = value;
+      return this.nome[index];
+    })
+   
+  }
+
+
 
   setTesto(rowIndex:number, testo: string) {
     this.testo[rowIndex] = testo;

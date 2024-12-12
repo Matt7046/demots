@@ -51,31 +51,21 @@ const SubPromise: React.FC<any> = ({ }) => {
 
 
   const caricamentoIniziale = (response: any): any => {
-    const nome = response ? response.testo[0].nome : null;
-    return handleClickButtonNome(0, nome).then((value: any) => {
-      if (value !== "GET") {
-        handleClickButtonNome(1, response.testo[1].nome);
-        return handleClickButtonNome(2, response.testo[2].nome);
-      }
-      return new Promise((myResolve, myReject) => "DATA")
-    })
+    const nome = response.testo.map((x: { nome: any; })=> x.nome);
+    return setAllNome(nome, 3)
   }
 
-  const handleClickButtonNome = (index: number, response: any) => {
-    if (!response) {
-      return fetchData().then((response: any) => {
-        return caricamentoIniziale(response).then((response: any) => "GET");
+  const setNomeByIndex = (response: any, index: number) => {
+    subPromiseStore.setNome(index, response);
+    return ascoltatore(response, "displayer-" + index.toString())
+  }
 
-      })
-
+  const setAllNome = (responseNome: any, dimension: number) => {
+    subPromiseStore.setAllNome(dimension, responseNome);
+    for (let index = 0; index < dimension; index++) {
+      ascoltatore(responseNome[index], "displayer-" + index.toString());
     }
-    else {
-      subPromiseStore.setNome(index, response);
-      return ascoltatore(response, "displayer-" + index.toString()).then((value: any) => {
-        return "DATA";
-      })
 
-    }
   }
 
   // Dati per generare i componenti dinamicamente
