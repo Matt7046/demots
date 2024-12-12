@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SubPromiseContent from './SubPromiseContent';
 import { ascoltatore } from './SubPromiseFunc';
 import subPromiseStore from './store/SubPromiseStore';
@@ -6,6 +6,9 @@ import { fetchData } from './service/SubPromiseService';
 
 
 const SubPromise: React.FC<any> = ({ }) => {
+
+  const [rows, setRows] = useState<number>(9); // Stato iniziale vuoto
+  const [response, setResponse] = useState<any>({}); // Stato iniziale vuoto
 
 
   // default class SubPromise extends React.Component {
@@ -24,9 +27,10 @@ const SubPromise: React.FC<any> = ({ }) => {
 
     // Funzione di cleanup (opzionale)
     return () => {
+
       //window.removeEventListener('resize', handleResize);
     };
-  }, []); // Il secondo argomento vuoto indica che l'effetto dipenderà solo dal mount
+  }, []); // Il secondo argomento vuoto ind ica che l'effetto dipenderà solo dal mount
 
   const componentDidMount = () => {
     if (!hasFetchedData) {
@@ -37,8 +41,10 @@ const SubPromise: React.FC<any> = ({ }) => {
       fetchData()
         .then((response) => {
           if (response) {
-            const data = response; // Ottieni i dati dalla risposta
-            caricamentoIniziale(response);
+            setResponse(response)
+            const rows = Array.from({ length: response.testo.length }, (_, i) => i + 1); // Genera un array dinamico
+            setRows(response.testo.length);
+            caricamentoIniziale(response, rows);
           }
 
         })
@@ -49,10 +55,21 @@ const SubPromise: React.FC<any> = ({ }) => {
   }
 
 
+  const aggiornaDOMComponente = (dimension: number, responseNome: string[]): any => {
+    if (responseNome) {
+      for (let index = 0; index < responseNome.length; index++) {
+        if (dimension !== 0)
+          ascoltatore(responseNome[index], "displayer-" + index.toString());
+      }
+    }
+  }
 
-  const caricamentoIniziale = (response: any): any => {
-    const nome = response.testo.map((x: { nome: any; })=> x.nome);
-    return setAllNome(nome, 3)
+
+
+
+  const caricamentoIniziale = (response: any, rows: number[]): any => {
+    const nome = response.testo.map((x: { nome: any; }) => x.nome);
+    return setAllNome(nome, rows)
   }
 
   const setNomeByIndex = (response: any, index: number) => {
@@ -60,24 +77,26 @@ const SubPromise: React.FC<any> = ({ }) => {
     return ascoltatore(response, "displayer-" + index.toString())
   }
 
-  const setAllNome = (responseNome: any, dimension: number) => {
-    subPromiseStore.setAllNome(dimension, responseNome);
-    for (let index = 0; index < dimension; index++) {
-      ascoltatore(responseNome[index], "displayer-" + index.toString());
-    }
+  const setAllNome = (responseNome: any, dimension: number[]) => {
+    subPromiseStore.setAllNome(dimension.length, responseNome);
+    aggiornaDOMComponente(dimension.length, responseNome);
 
   }
 
-  // Dati per generare i componenti dinamicamente
-  const rows = [0, 1, 2];
 
+
+  // Dati per generare i componenti dinamicamente
+
+
+  //if (lengthRow.length === 0) {
+  //  return <div>Caricamento in corso...</div>; // Indicatore di caricamento  }
+  //}
   return (
     <>
-      {rows.map((rowIndex) => (
-        <SubPromiseContent
-          key={rowIndex} // Chiave univoca per ogni elemento
-          rowIndex={rowIndex}
-        />
+      {Array.from({ length: rows }, (_, rowIndex) => (<SubPromiseContent
+        key={rowIndex} // Chiave univoca per ogni elemento
+        rowIndex={rowIndex}
+      />
       ))}
     </>
   );
