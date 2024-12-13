@@ -8,11 +8,15 @@ import { fetchSubPromiseById } from "./service/SubPromiseService";
 import NomeDisplay from "../nomeDisplay/NomeDisplay";
 import handleClick from "../label/labelFunc";
 import { ascoltatore } from "./SubPromiseFunc";
+import { navigateRouting } from "../../App";
+
 
 
 const SubPromiseContent: React.FC<any> = ({
   rowIndex,
 }) => {
+const navigate = useNavigate(); // Ottieni la funzione di navigazione
+
 
   const toggleVisibility = (rowIndex:number) => {
     const element = document.querySelector(`#rowHidden-${rowIndex}`) as HTMLElement;
@@ -54,15 +58,11 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
 
 
 
-  const navigate = useNavigate(); // Ottieni la funzione di navigazione
-
-  const handleClickButtonLink = (rowIndex: any) => {
-    navigate('/about', { state: { rowIndex } }); // Passa il parametro come stato
-  }
-
 
   function clickRowNome(rowIndex: any): void {
   }
+
+ 
 
   return (
     <>
@@ -90,7 +90,7 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
             id={`button-link-${rowIndex}`} // ID univoco
             value="Dettaglio"
             onClick={() => {
-              handleClickButtonLink(rowIndex);
+              navigateRouting(navigate,rowIndex, 'about');
             }}
           />
         </div>
@@ -98,7 +98,7 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
 
           visibility:'hidden'
          }}  >
-          <Label rowIndex={rowIndex} htmlFor="" text={labelText} handleClick={() => handleClick()} />
+          <Label identificativo={rowIndex} text={labelText} handleClick={() => handleClick()} />
         </div>
       </div>
 

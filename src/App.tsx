@@ -2,7 +2,7 @@
 import './App.css';
 import SubPromise from "./components/pageSubPromise/SubPromise";
 import About from './components/pageAbout/About';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom'; // Importa i componenti necessari
+import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom'; // Importa i componenti necessari
 // App.tsx
 
 
@@ -13,10 +13,7 @@ const App = () => {
         <h1>App1 con Routing</h1>
         <nav>
           <ul>
-            <li>
-              <Link to="/">Home</Link> {/* Link alla Home */}
-            </li>
-          
+           
           </ul>
         </nav>
 
@@ -29,30 +26,12 @@ const App = () => {
   );
 }
 
-//export default App;
 
-/* Colore del testo 
-
-
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={inter} className="App-logo" alt="logo" />
-         <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <SubPromise nomeProps="Pippo">
-        </SubPromise>
-      </header>
-    </div>
-  );
+export const navigateRouting = (navigate: any, identificativo: any,path: string) => {
+//const navigate = useNavigate(); // Ottieni la funzione di navigazione
+  navigate(`/${path}`, { state: { identificativo } }); // Passa il parametro come stato
 }
-*/
+
 
 export default App;
 

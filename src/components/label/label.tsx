@@ -1,25 +1,32 @@
 import { observer } from 'mobx-react';
 
-// Definizione dei tipi delle props
-export interface LabelProps {
-  htmlFor: string; // id dell'elemento associato
-  text: string; // Testo della label
-  className?: string; // Classe CSS opzionale
-  rowIndex: number; // rowIndex per identificare la riga
-  handleClick: () => void;
 
+interface LabelProps {
+  identificativo: number | string;
+  text: string;
+  className?: string;
+  handleClick: () => void;
+  isUnderlined?: boolean; // Proprietà opzionale per la sottolineatura
 }
 
+const Label = observer((props: LabelProps) => {
+  const textDecoration = props.isUnderlined ? "underline" : "none";
 
-const Label = observer((props:LabelProps) => {
   return (
-    <div className={'label'} key={props.rowIndex}>
-      <label  id={'label-' + props.rowIndex.toString()} htmlFor={`label-${props.rowIndex}`} className={props.className}>
+    <div className="label" key={props.identificativo}>
+      <label
+        id={`label-${props.identificativo}`}
+        htmlFor={`label-${props.identificativo}`}
+        className={props.className}
+        onClick={props.handleClick}
+        style={{ textDecoration }} // Applica dinamicamente lo stile
+      >
         {props.text}
       </label>
     </div>
   );
-})
+});
+
 export default Label;
 
 
