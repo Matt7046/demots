@@ -85,24 +85,26 @@ const SubPromiseContent: React.FC<any> = ({
             gap: '1px', // Distanza tra i pulsanti
             visibility: visibiityButton ? 'visible' : 'hidden',
           }}
-         >
+        >
           <div className="col-button">
-            <input
-              type="button"
-              id={'button-red'}
+            <button
+              id="button-red"
               className="button-red"
-              value="Testo"
-              onClick={() => toggleVisibility(rowIndex)}
-            />
+              onClick={() => toggleVisibility(rowIndex)} >
+              <i className="fas fa-eye" style={{ marginRight: '5px' }}></i> {/* Icona */}
+              Testo {/* Testo accanto all'icona */}
+            </button>
           </div>
+
           <div className="col-button-link">
-            <input
+            <button
               type="button"
               className="button-blue"
-              id={'button-blue'}
-              value="Dettaglio"
-              onClick={() => navigateRouting(navigate, rowIndex, 'about')}
-            />
+              id='button-blue'
+              onClick={() => navigateRouting(navigate, rowIndex, 'about')}>
+              <i className="fas fa-eye" style={{ marginRight: '5px' }}></i> {/* Icona */}
+              Testo {/* Testo accanto all'icona */}
+            </button>
           </div>
         </div>
 
