@@ -12,6 +12,7 @@ import { navigateRouting } from "../../App";
 
 
 
+
 const SubPromiseContent: React.FC<any> = ({
   rowIndex,
   visibiityButton // Proprietà opzionale per la sottolineatura
@@ -90,9 +91,12 @@ const SubPromiseContent: React.FC<any> = ({
             <button
               id="button-red"
               className="button-red"
+              title="Carica sottotesto"  /* Tooltip nativo */
+
               onClick={() => toggleVisibility(rowIndex)} >
-              <i className="fas fa-eye" style={{ marginRight: '5px' }}></i> {/* Icona */}
-              Testo {/* Testo accanto all'icona */}
+                
+              <i className="fas fa-download" style={{ marginRight: '5px' }}></i> {/* Icona */}
+             {/* Testo accanto all'icona */}
             </button>
           </div>
 
@@ -101,9 +105,11 @@ const SubPromiseContent: React.FC<any> = ({
               type="button"
               className="button-blue"
               id='button-blue'
+              title="Vai alla pagina dei dettagli"  /* Tooltip nativo */
+
               onClick={() => navigateRouting(navigate, rowIndex, 'about')}>
               <i className="fas fa-eye" style={{ marginRight: '5px' }}></i> {/* Icona */}
-              Testo {/* Testo accanto all'icona */}
+               {/* Testo accanto all'icona */}
             </button>
           </div>
         </div>

@@ -3,6 +3,8 @@ import './App.css';
 import SubPromise from "./components/pageSubPromise/SubPromise";
 import About from './components/pageAbout/About';
 import { BrowserRouter as Router, Route, Routes, Link, useNavigate } from 'react-router-dom'; // Importa i componenti necessari
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 // App.tsx
 
 
