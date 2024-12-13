@@ -17,30 +17,29 @@ const SubPromiseContent: React.FC<any> = ({
   visibiityButton // Proprietà opzionale per la sottolineatura
 
 }) => {
-const navigate = useNavigate(); // Ottieni la funzione di navigazione
+  const navigate = useNavigate(); // Ottieni la funzione di navigazione
 
 
-  const toggleVisibility = (rowIndex:number) => {
+  const toggleVisibility = (rowIndex: number) => {
     const element = document.querySelector(`#rowHidden-${rowIndex}`) as HTMLElement;
     const check = element.style.visibility === "hidden";
-     // Rimuove il valore inline
-    if(check)
-    {
+    // Rimuove il valore inline
+    if (check) {
       element.style.visibility = ""; // Rimuove il valore inline
 
-    }else{
+    } else {
       element.style.visibility = "hidden"; // Rimuove il valore inline
 
     }
-    
+
     if (check) {
-        handleClickMostraLabel(rowIndex)
-      }
-      return check; // Aggiorna lo stato
+      handleClickMostraLabel(rowIndex)
+    }
+    return check; // Aggiorna lo stato
     ;
 
 
-    
+
 
   };
 
@@ -49,8 +48,8 @@ const navigate = useNavigate(); // Ottieni la funzione di navigazione
 
   const handleClickMostraLabel = (rowIndex: number) => {
 
-  return  fetchSubPromiseById(rowIndex).then((response) => {
-subPromiseStore.setTesto(rowIndex, response.testo.testo);
+    return fetchSubPromiseById(rowIndex).then((response) => {
+      subPromiseStore.setTesto(rowIndex, response.testo.testo);
       //  setLabelText(subPromiseStore.testo[rowIndex]);
       return ascoltatore(response.testo.testo, "label-" + rowIndex.toString())
     })
@@ -64,7 +63,7 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
   function clickRowNome(rowIndex: any): void {
   }
 
- 
+
 
   return (
     <>
@@ -76,40 +75,42 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
             key={0}
           />
         </div>
-        <div
-          className="col-button"
-          style={{
-            gridColumn: 'span 1',
-            visibility: visibiityButton ? 'visible' : 'hidden', // Configura la visibilità dinamicamente
-          }}
-        >          <input
-            type="button"
-            id={`button-${rowIndex}`} // ID univoco
-            className="button"
-            value="Testo"
-            onClick={() =>  toggleVisibility(rowIndex)    }
-          />
-        </div>
-        <div
-          className="col-button-link"
-          style={{
-            gridColumn: 'span 1',
-            visibility: visibiityButton ? 'visible' : 'hidden', // Configura la visibilità dinamicamente
-          }}
-        >          <input
-            type="button"
-            className="button-blue"
-            id={`button-link-${rowIndex}`} // ID univoco
-            value="Dettaglio"
-            onClick={() => {
-              navigateRouting(navigate,rowIndex, 'about');
-            }}
-          />
-        </div>
-        <div id={`rowHidden-${rowIndex}`} style={{ gridColumn: 'span 10', textAlign: 'left',
 
-          visibility:'hidden'
-         }}  >
+        <div
+          className="col-button-container"
+          style={{
+            gridColumn: 'span 2', // Unisce le colonne 11 e 12
+            display: 'grid', // Utilizza il grid per disporre i pulsanti
+        //    gridTemplateColumns: '1fr 1fr', // Due colonne uguali
+            gap: '10px', // Distanza tra i pulsanti
+            visibility: visibiityButton ? 'visible' : 'hidden',
+          }}
+        >
+          <div className="col-button">
+            <input
+              type="button"
+              id={'button-red'}
+              className="button-red"
+              value="Testo"
+              onClick={() => toggleVisibility(rowIndex)}
+            />
+          </div>
+          <div className="col-button-link">
+            <input
+              type="button"
+              className="button-blue"
+              id={'button-blue'}
+              value="Dettaglio"
+              onClick={() => navigateRouting(navigate, rowIndex, 'about')}
+            />
+          </div>
+        </div>
+
+        <div id={`rowHidden-${rowIndex}`} style={{
+          gridColumn: 'span 10', textAlign: 'left',
+
+          visibility: 'hidden'
+        }}  >
           <Label identificativo={rowIndex} text={labelText} handleClick={() => handleClick()} />
         </div>
       </div>
