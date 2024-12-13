@@ -69,7 +69,7 @@ const SubPromiseContent: React.FC<any> = ({
   return (
     <>
       <div className={`row`}>
-        <div className="col-display" style={{ gridColumn: 'span 9' }}>
+        <div className="col-display" style={{ gridColumn: 'span 10' }}>
           <NomeDisplay
             rowIndex={rowIndex}
             handleClick={() => clickRowNome(rowIndex)}
@@ -80,7 +80,7 @@ const SubPromiseContent: React.FC<any> = ({
         <div
           className="col-button-container"
           style={{
-            gridColumn: 'span 3', // Unisce le colonne 11 e 12
+            gridColumn: 'span 2', // Unisce le colonne 11 e 12
             display: 'flex', // Utilizza il grid per disporre i pulsanti
             gridTemplateColumns: '2fr 1fr', // Due colonne uguali
             gap: '1px', // Distanza tra i pulsanti
