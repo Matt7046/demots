@@ -17,7 +17,7 @@
 .button-red {
   /* background-color: red; Colore di sfondo rosso */
  /*  color: white;          Colore del testo bianco */
- border: 3px solid red; /* Bordo di colore rosso, spesso 2px */
+ border: 2px solid red; /* Bordo di colore rosso, spesso 2px */
  border-radius: 12px;   /* Bordi arrotondati */
   padding: 10px 20px;    /* Spaziatura interna */
   font-size: 16px;       /* Dimensione del testo */
@@ -33,7 +33,7 @@
 
 .button-blue {
   /* background-color: red; Colore di sfondo rosso */
-  border: 3px solid blue; /* Bordo di colore rosso, spesso 2px */
+  border: 2px solid blue; /* Bordo di colore rosso, spesso 2px */
   /*  color: white;          Colore del testo bianco */
  border-radius: 12px;   /* Bordi arrotondati */
   padding: 10px 20px;    /* Spaziatura interna */
