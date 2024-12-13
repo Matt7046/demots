@@ -99,6 +99,18 @@ h1 {
 
 }
 
+@media (max-width: 600px) {
+  .col-button-container {
+    grid-template-columns: 1fr; /* Impila i pulsanti verticalmente */
+    gap: 10px; /* Distanza tra i pulsanti */
+  }
+}
+
+.button-red
+.button-blue {
+  max-width: 100%; /* I pulsanti si restringono per adattarsi allo spazio */
+}
+
 .label-hidden {
   visibility: hidden; /* Occupa le ultime 2 colonne */
 }
