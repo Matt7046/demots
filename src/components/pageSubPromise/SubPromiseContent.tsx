@@ -14,6 +14,8 @@ import { navigateRouting } from "../../App";
 
 const SubPromiseContent: React.FC<any> = ({
   rowIndex,
+  visibiityButton // Proprietà opzionale per la sottolineatura
+
 }) => {
 const navigate = useNavigate(); // Ottieni la funzione di navigazione
 
@@ -74,8 +76,13 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
             key={0}
           />
         </div>
-        <div className="col-button" style={{ gridColumn: 'span 1' }}>
-          <input
+        <div
+          className="col-button"
+          style={{
+            gridColumn: 'span 1',
+            visibility: visibiityButton ? 'visible' : 'hidden', // Configura la visibilità dinamicamente
+          }}
+        >          <input
             type="button"
             id={`button-${rowIndex}`} // ID univoco
             className="button"
@@ -83,8 +90,13 @@ subPromiseStore.setTesto(rowIndex, response.testo.testo);
             onClick={() =>  toggleVisibility(rowIndex)    }
           />
         </div>
-        <div className="col-button-link" style={{ gridColumn: 'span 1' }}>
-          <input
+        <div
+          className="col-button-link"
+          style={{
+            gridColumn: 'span 1',
+            visibility: visibiityButton ? 'visible' : 'hidden', // Configura la visibilità dinamicamente
+          }}
+        >          <input
             type="button"
             className="button-blue"
             id={`button-link-${rowIndex}`} // ID univoco

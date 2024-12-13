@@ -10,6 +10,7 @@ const SubPromise: React.FC<any> = ({ }) => {
   const [rows, setRows] = useState<number>(9); // Stato iniziale vuoto
   const [response, setResponse] = useState<any>({}); // Stato iniziale vuoto
 
+  const [visibiityButton, setVisibilityButton] = useState<boolean>(false); // Stato iniziale vuoto
 
   // default class SubPromise extends React.Component {
 
@@ -61,6 +62,7 @@ const SubPromise: React.FC<any> = ({ }) => {
         if (dimension !== 0)
           ascoltatore(responseNome[index], "displayer-" + index.toString());
       }
+      setVisibilityButton(true);
     }
   }
 
@@ -96,6 +98,7 @@ const SubPromise: React.FC<any> = ({ }) => {
       {Array.from({ length: rows }, (_, rowIndex) => (<SubPromiseContent
         key={rowIndex} // Chiave univoca per ogni elemento
         rowIndex={rowIndex}
+        visibiityButton ={visibiityButton}
       />
       ))}
     </>
