@@ -80,7 +80,7 @@ const SubPromiseContent: React.FC<any> = ({
           className="col-button-container"
           style={{
             gridColumn: 'span 3', // Unisce le colonne 11 e 12
-            display: 'grid', // Utilizza il grid per disporre i pulsanti
+            display: 'flex', // Utilizza il grid per disporre i pulsanti
             gridTemplateColumns: '2fr 1fr', // Due colonne uguali
             gap: '1px', // Distanza tra i pulsanti
             visibility: visibiityButton ? 'visible' : 'hidden',
