@@ -7,7 +7,7 @@ import { fetchData } from './service/SubPromiseService';
 
 const SubPromise: React.FC<any> = ({ }) => {
 
-  const [rows, setRows] = useState<number>(9); // Stato iniziale vuoto
+  const [rows, setRows] = useState<number>(10); // Stato iniziale vuoto
   const [response, setResponse] = useState<any>({}); // Stato iniziale vuoto
 
   const [visibiityButton, setVisibilityButton] = useState<boolean>(false); // Stato iniziale vuoto

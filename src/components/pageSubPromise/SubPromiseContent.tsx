@@ -50,7 +50,7 @@ const SubPromiseContent: React.FC<any> = ({
   const handleClickMostraLabel = (rowIndex: number) => {
 
     return fetchSubPromiseById(rowIndex).then((response) => {
-      subPromiseStore.setTesto(rowIndex, response.testo.testo);
+      //subPromiseStore.setTesto(rowIndex, response.testo.testo);
       //  setLabelText(subPromiseStore.testo[rowIndex]);
       return ascoltatore(response.testo.testo, "label-" + rowIndex.toString())
     })
