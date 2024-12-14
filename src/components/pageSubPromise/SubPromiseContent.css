@@ -23,9 +23,9 @@
   font-size: 16px;       /* Dimensione del testo */
   cursor: pointer;       /* Cambia il cursore al passaggio */
   transition: background-color 0.3s ease; /* Effetto al passaggio */
-  max-width: 150px; /* Larghezza massima */
+  max-width: 90px; /* Larghezza massima */
   min-width: 50px; /* Larghezza minima */
-  width: 90%; /* Si adatta allo spazio disponibile */
+  width: 100%; /* Si adatta allo spazio disponibile */
   box-shadow: rgba(187, 44, 44, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 }
@@ -40,9 +40,9 @@
   font-size: 16px;       /* Dimensione del testo */
   cursor: pointer;       /* Cambia il cursore al passaggio */
   transition: background-color 0.3s ease; /* Effetto al passaggio */
-  max-width: 150px; /* Larghezza massima */
+  max-width: 90px; /* Larghezza massima */
   min-width: 50px; /* Larghezza minima */
-  width: 90%; /* Si adatta allo spazio disponibile */  box-shadow: rgba(44, 53, 187, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  width: 100%; /* Si adatta allo spazio disponibile */  box-shadow: rgba(44, 53, 187, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) rotate(-1deg);
 
 }
@@ -91,15 +91,15 @@ h1 {
   transform: scale(1.05) ;
   max-width: 100px; /* Larghezza massima */
   min-width: 50px; /* Larghezza minima */
-  width: 90%; /* Si adatta allo spazio disponibile */}
+  width: 100%; /* Si adatta allo spazio disponibile */}
 
 
 .col-button-link {
   box-shadow: rgba(44, 53, 187, 0.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
   transform: scale(1.05) ;
-  max-width: 100px; /* Larghezza massima */
+  max-width: 90px; /* Larghezza massima */
   min-width: 50px; /* Larghezza minima */
-  width: 90%; /* Si adatta allo spazio disponibile */ 
+  width: 100%; /* Si adatta allo spazio disponibile */ 
 
 }
 
