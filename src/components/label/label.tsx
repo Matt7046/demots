@@ -19,7 +19,14 @@ const Label = observer((props: LabelProps) => {
         htmlFor={`label-${props.identificativo}`}
         className={props.className}
         onClick={props.handleClick}
-        style={{ textDecoration }} // Applica dinamicamente lo stile
+        style={{
+          textOverflow: 'ellipsis', // Mostra i puntini
+          whiteSpace: 'nowrap', // Impedisce l'andata a capo
+          overflow: 'hidden', // Nasconde il contenuto extra
+          display: 'inline-block', // Per applicare ellipsis correttamente
+          maxWidth: '100%', // Imposta una larghezza massima
+          textDecoration
+        }}
       >
         {props.text}
       </label>
